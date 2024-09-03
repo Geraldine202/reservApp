@@ -17,6 +17,8 @@ export class RegistroPage implements OnInit {
     nombre: new FormControl('',[Validators.required,Validators.pattern("[a-z]{3,5}")]),
     fecha_nacimiento: new FormControl('',[Validators.required]),
     genero: new FormControl('',[Validators.required]),
+    tiene_equipo: new FormControl('No',[Validators.required]),
+    nombre_equipo: new FormControl('',[]),
   });
   public alertButtons = [
     {

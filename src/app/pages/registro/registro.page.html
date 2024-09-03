@@ -19,6 +19,16 @@
         <ion-select-option>Femenino</ion-select-option>
         <ion-select-option>Otro</ion-select-option>
       </ion-select>
+
+      <ion-label>¿Tiene Equipo?</ion-label>
+      <ion-radio-group formControlName="tiene_equipo">
+        <ion-radio value="Si">Si</ion-radio>
+        <ion-radio value="No">No</ion-radio>
+      </ion-radio-group>
+
+      <ion-input *ngIf="persona.controls.tiene_equipo.value=='Si'" formControlName="nombre_equipo" type="text" label="Nombre equipo" labelPlacement="stacked"></ion-input>
+
+
       <ion-button id="present-alert" [disabled]="persona.invalid" type="submit" size="block" color="warning">Registrar</ion-button>
       <ion-alert trigger="present-alert" header="alert!" [buttons]="alertButtons" (didDismiss)="setResult($event)"></ion-alert>
     </form>
