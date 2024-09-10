@@ -34,4 +34,24 @@ export class AdministrarPage implements OnInit {
     }
   }
 
+  buscar(rut_buscar:string){
+   this.persona.setValue(this.usuarioService.getUsuario(rut_buscar));
+  }
+  modificar(){
+    var rut_buscar:string = this.persona.controls.rut.value || "";
+    if(this.usuarioService.updateUsuario(rut_buscar , this.persona.value)){
+      alert("Usuario MODIFICADO con Éxito");
+    }else{
+      alert("ERROR!! Usuario NO modificado!");
+    }
+  }
+  eliminar(rut_eliminar:string){
+    //console.log(rut_eliminar);
+    if(this.usuarioService.deleteUsuario(rut_eliminar)){
+      alert("Usuario ELIMINADO con éxito")
+    }else{
+      alert("ERROR!! Usuario NO eliminado")
+    }
+  }
+
 }
